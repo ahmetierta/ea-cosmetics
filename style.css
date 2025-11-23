@@ -1,6 +1,6 @@
 body{
     background-color: #f8f8f5;
-    font-family: 'Arial' , sans-serif;
+    font-family: 'Verdana' , sans-serif;
 }
 header{
     display: flex;
@@ -9,21 +9,24 @@ header{
     flex-wrap: wrap;
     background-color: #f8f8f5;
     color: black;
-    padding: 8px 30px;
+    padding: 12px 40px;
     align-items: center;
 }
-.nav-left{
+.nav-right{
     display: flex;
     flex-direction: row;
     gap: 27px;
     color: black;
 }
-.nav-left a{
+.nav-right a{
     color: black;
     text-decoration: none;
 }
+.nav-right a:hover{
+    color: #ff81c0;
+}
 .logo img{
-   height: 40px;
+   height:40px;
    width: auto;
    object-fit: contain;
 }
@@ -37,24 +40,30 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 600px;
     object-fit: contain;
     color: #f8f8f5;
     text-align: center;
-    line-height: 15px;
+    line-height: 10px;
+    font-size: larger;
 }
+
 .starti button{
-    padding: 10px 20px;
+    padding: 9px 15px;
     background-color: #f8f8f5;
-    border: rgb(182, 19, 19);
+    border: #ff81c0;
     border-radius: 10px;
-    font-size: 15px;
-    color: rgb(182, 19, 19);
+    font-size: 20px;
+    color: #ff81c0;
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s ease;
 }
+.starti button a{
+    text-decoration: none;
+    color: #ff81c0;
+}
 .starti button:hover{
     transform: scale(1.05);
-    background-color: #e2e2dd;
+    background-color: #f1f1ea;
 }

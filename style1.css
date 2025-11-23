@@ -1,5 +1,5 @@
 body{
-    font-family: 'Arial',sans-serif;
+    font-family: 'Verdana',sans-serif;
     color: #f8f8f5;
     background-color: #f8f8f5;
 
@@ -11,21 +11,24 @@ header{
     flex-wrap: wrap;
     background-color: #f8f8f5;
     color: black;
-    padding: 15px 40px;
+    padding: 12px 40px;
     align-items: center;
 }
-.nav-left{
+.nav-right{
     display: flex;
     flex-direction: row;
     gap: 27px;
     color: black;
 }
-.nav-left a{
+.nav-right a{
     color: black;
     text-decoration: none;
 }
+.nav-right a:hover{
+    color: #ff81c0;
+}
 .logo img{
-   height: 40px;
+   height:40px;
    width: auto;
    object-fit: contain;
 }
