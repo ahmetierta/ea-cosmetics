@@ -21,16 +21,34 @@
         </div>
     </header>
    <main>
-    <section class="products">
-        <h1>Our Products</h1>
-        <p>Discover our curated selection of beauty essentials crafted for your daily rituals.</p>
+    <section class="starti">
+        <div class="explore-more">
+            <h2>Products</h2>
+        </div>
     </section>
-        <section class="products-filters">
-        <button class="filter-btn active">All</button>
-        <button class="filter-btn">Eyebrows & Eye Makeup</button>
-        <button class="filter-btn">Face Makeup</button>
-        <button class="filter-btn">Lips</button>
-        <button class="filter-btn">Brushes & Accessories</button>
+    <section class="products-intro">
+        <p>Your beauty essentials, thoughtfully selected to elevate your everyday glow.</p>
+    </section>
+    <section class="products-filters">
+        <button class="category-card all-category" onclick="filterProducts('all')">
+            All Products
+        </button>
+        <button class="category-card" onclick="filterProducts('eyes')">
+            <img src="img/eyes.jpg" alt="eyes">
+            <p>Eyes & Brows</p>
+        </button>
+        <button class="category-card" onclick="filterProducts('face')">
+            <img src="img/face.png" alt="face">
+            <p>Face</p>
+        </button>
+        <button class="category-card" onclick="filterProducts('lips')">
+            <img src="img/lips.png" alt="lips">
+            <p>Lips</p>
+        </button>
+        <button class="category-card" onclick="filterProducts('brushes')">
+            <img src="img/brushes.png" alt="Brushes & Accessories">
+            <p>Brushes & Accessories</p>
+        </button>
     </section>
 
 

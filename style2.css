@@ -81,3 +81,100 @@ header{
     border-color: #C14279;
     transform: scale(1.05);
 }
+.starti {
+    background: url(img/ch.png) center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    object-fit: contain;
+    color: #f8f8f5;
+    text-align: left;
+    line-height: 10px;
+    font-size: larger;
+    margin-bottom: 0;
+}
+.explore-more{
+    max-width: 520px;
+    border-radius: 18px;
+    box-shadow: none;
+    text-align: center;
+    padding: 10px 20px;
+}
+.explore-more h2{
+    margin: 0 0 10px;
+    font-size: 56px;
+    line-height: 1.2;
+    color: #F8F8F5;
+    font-weight: 800;
+    text-shadow: 0 0 15px rgba(193, 66, 121, 100);
+    transition: transform 0.2s ease; 
+}
+.explore-more h2:hover {
+    transform: scale(1.04); 
+}
+.products-intro{
+    text-align: center;
+    padding: 0 20px;
+    height: 30px;
+    background: #F8D8E8;
+    margin-top: 0;
+}
+.products-intro p{
+    padding: 5px 0;
+    color: #C14279;
+    transition: transform 0.2s ease; 
+}
+.products-intro p:hover {
+    transform: scale(1.04); 
+}
+.products-filters{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: 40px auto 60px;
+    padding: 0 20px;
+}
+.category-card {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: center;
+}
+.category-card.all-category{
+    background: rgba(227, 231, 235, 0.45);
+    border-radius: 18px;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.25s ease;
+    font-size: 20px;
+    font-weight: 700;
+    color: #C14279;
+}
+.category-card.all-category:hover {
+    background: rgba(227, 231, 235, 0.45);
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+.category-card img{
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.category-card:hover img{
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.category-card p{
+    margin-top: 12px;
+    font-size: 16px;
+    color: #C14279;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
