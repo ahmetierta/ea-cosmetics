@@ -1,5 +1,5 @@
 body{
-    background-color: #f8f8f5;
+    background-color: #F8D8E8;
     font-family: 'Verdana' , sans-serif;
 }
 header{
@@ -7,10 +7,11 @@ header{
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: #f8f8f5;
+    background-color: #FFF8FC;
     color: black;
     padding: 12px 40px;
     align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 .nav-right{
     display: flex;
@@ -21,9 +22,14 @@ header{
 .nav-right a{
     color: black;
     text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
 }
 .nav-right a:hover{
-    color: #ff81c0;
+    color: #C14279;
+    transition: 0.2s;
+    transform: scale(1.07);
+
 }
 .logo img{
    height:40px;
@@ -47,23 +53,53 @@ header{
     line-height: 10px;
     font-size: larger;
 }
-
+.explore-more{
+    max-width: 520px;
+    margin: 0;
+    padding: 50px 100px;
+    background: rgba(255, 248, 252, 0.70);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+    text-align: center;
+}
+.explore-more * {
+    line-height: 1.2;
+}
+.explore-more h3{
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 13px;
+    color: #C14279;
+}
+.explore-more h1{
+    margin: 0 0 10px;
+    font-size: 40px;
+    line-height: 1.2;
+    color: #C14279;
+}
+.explore-more p{
+    margin: 0 0 18px;
+    font-size: 16px;
+    color: #555;
+}
 .starti button{
-    padding: 9px 15px;
-    background-color: #f8f8f5;
-    border: #ff81c0;
-    border-radius: 10px;
-    font-size: 20px;
-    color: #ff81c0;
-    font-weight: 700;
+    padding: 10px 28px;
+    background: linear-gradient(135deg, #C14279, #EFA4C8);
+    border: none;
+    border-radius: 999px;
+    font-size: 16px;
+    color: #fff;
+    margin-top: 9px;
+    font-weight: 600;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .starti button a{
     text-decoration: none;
-    color: #ff81c0;
+    color: inherit;
 }
 .starti button:hover{
-    transform: scale(1.05);
-    background-color: #f1f1ea;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
