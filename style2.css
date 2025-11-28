@@ -1,0 +1,83 @@
+body{
+    background-color: #FEF3FA;
+    font-family: 'Verdana' , sans-serif;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #FFF8FC;
+    color: black;
+    padding: 12px 40px;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+.nav-right{
+    display: flex;
+    flex-direction: row;
+    gap: 27px;
+    color: black;
+}
+.nav-right a{
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+}
+.nav-right a:hover{
+    color: #C14279;
+    transition: 0.2s;
+    transform: scale(1.07);
+
+}
+.logo img{
+   height:40px;
+   width: auto;
+   object-fit: contain;
+}
+.nav-right img{
+    width: auto;
+    height: 20px;
+    cursor: pointer;
+}
+.products{
+    text-align: center;
+    padding: 40px 20px 20px;
+}
+.products h1{
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+.products p{
+    font-size: 15px;
+    color: #555;
+}
+.products-filters{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 20px 30px;
+}
+.filter-btn{
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid #C14279;
+    background-color: #FFF8FC;
+    color: #C14279;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+.filter-btn:hover{
+    background-color: #F9CFE2;  /* pastel pink e butë */
+    color: #C14279;
+    border-color: #C14279;
+    transform: scale(1.05);
+}
+.filter-btn.active{
+    background-color: #C14279;   /* ngjyra kryesore */
+    color: #fff;
+    border-color: #C14279;
+    transform: scale(1.05);
+}
