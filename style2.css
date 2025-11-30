@@ -70,13 +70,13 @@ header{
     transition: 0.15s ease;
 }
 .filter-btn:hover{
-    background-color: #F9CFE2;  /* pastel pink e butë */
+    background-color: #F9CFE2;  
     color: #C14279;
     border-color: #C14279;
     transform: scale(1.05);
 }
 .filter-btn.active{
-    background-color: #C14279;   /* ngjyra kryesore */
+    background-color: #C14279;  
     color: #fff;
     border-color: #C14279;
     transform: scale(1.05);
@@ -115,13 +115,12 @@ header{
 }
 .products-intro{
     text-align: center;
-    padding: 0 20px;
-    height: 30px;
+    padding: 5px 0;
     background: #F8D8E8;
     margin-top: 0;
 }
 .products-intro p{
-    padding: 5px 0;
+    margin: 0;
     color: #C14279;
     transition: transform 0.2s ease; 
 }
@@ -130,7 +129,7 @@ header{
 }
 .products-filters{
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(6,1fr);
     gap: 25px;
     max-width: 1200px;
     margin: 40px auto 60px;
