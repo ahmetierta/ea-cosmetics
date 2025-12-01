@@ -50,7 +50,7 @@ header{
 .signup{
     max-width: 420px;
     width: 100%;
-    margin: 40px 60px;
+    margin: 100px 60px;
     color: #C14279;
     padding: 40px 60px;
     display: flex;
@@ -61,7 +61,7 @@ header{
     border-radius: 10px;
 }
 .signup h1{
-    border-radius: 6px;
+    border-radius: px;
     color: #C14279;
     padding: 10px;
     border: #ffc5e2;
