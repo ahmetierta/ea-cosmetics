@@ -183,6 +183,7 @@ header{
 }
 .social-links img:hover{
     opacity: 1;
+    transform: scale(1.07);
 }
 .footer-bottom{
     margin-top: 40px;
