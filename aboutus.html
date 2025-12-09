@@ -7,11 +7,11 @@
 <link rel="icon" href="img/logo1.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-body{
-    background-color:#F8D8E8;
-    font-family:Verdana, sans-serif;
-    margin:0;
-    padding:0;
+body {
+    background-color: #F8D8E8;
+    font-family: Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 header{
     display:flex;
@@ -45,6 +45,7 @@ header{
     justify-content:center;
     gap:25px;
     margin-top:50px;
+    flex-wrap:wrap;
 }
 .about-row img{
     width:220px;
@@ -75,7 +76,7 @@ header{
 }
 .influencer-section{
     max-width:1200px;
-    margin:0 auto 80px auto;
+    margin:0 auto 50px auto;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -117,6 +118,34 @@ header{
     color:#7a4b60;
     text-align:center;
     margin-top:15px;
+}
+.influencer-row {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    padding: 0 40px;
+    margin-top: 30px;
+}
+.influencer-card {
+    text-align: center;
+    flex: 0 0 220px;
+    margin-right: 120px;
+}
+.influencer-card:last-child {
+    margin-right: 0;
+}
+.influencer-card img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.influencer-card p {
+    margin-top: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #7a4b60;
 }
 </style>
 </head>
@@ -162,6 +191,25 @@ header{
             <div class="play-btn">▶</div>
         </a>
         <p class="video-caption">Alexa Demie shares her daily routine using our products.</p>
+        <div class="pink-line"></div>
+    </div>
+    <div class="influencer-row">
+        <div class="influencer-card">
+            <img src="addisonrea.png">
+            <p><b>Addison Rae</b><br>Influencer working with us</p>
+        </div>
+        <div class="influencer-card">
+            <img src="mirtamiler.png">
+            <p><b>Mirta Miler</b><br>Influencer working with us</p>
+        </div>
+        <div class="influencer-card">
+            <img src="meredithduxbury.png">
+            <p><b>Meredith Duxbury</b><br>Influencer working with us</p>
+        </div>
+        <div class="influencer-card">
+            <img src="amayacolon.png">
+            <p><b>Amaya Colon</b><br>Influencer working with us</p>
+        </div>
     </div>
 </div>
 </body>
