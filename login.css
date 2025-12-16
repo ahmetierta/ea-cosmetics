@@ -2,17 +2,6 @@ body{
     background-color: #F8D8E8;
     font-family: 'Verdana' , sans-serif;
 }
-header{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: #FFF8FC;
-    color: black;
-    padding: 12px 40px;
-    align-items: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
 
 .nav-right{
     display: flex;
