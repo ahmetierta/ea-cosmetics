@@ -8,18 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
-        </div>
-        <div class="nav-right">
-            <a href="index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="aboutus.html">About Us</a>
-            <a href="contactus.html">Contact us</a>
-            <a href="login.html"><img src="img/acc.png" alt="Account" title="Account"></a>
-        </div>
-    </header>
+    <?php include 'includes/header.php'; ?>
     <section class="starti">
         <div class="explore-more">
             <h3>Timeless Luxury Edition</h3>
@@ -174,47 +163,6 @@
 
         </div>
     </section>
-    <footer class="footer">
-        <div class="footer-newsletter">
-            <h3>Stay in the Glow</h3>
-            <p>Subscribe to receive updates on new products and exclusive offers.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-        <div class="footer-nav">
-            <div class="footer-column">
-                <h4>Products</h4>
-                <a href="products.html#eyes-brows">Eyes & Brows</a>
-                <a href="products.html#face">Face</a>
-                <a href="products.html#lips">Lips</a>
-                <a href="products.html#brushes">Brushes & Accessories</a>
-                <a href="products.html#sale">Sale</a>
-            </div>
-            <div class="footer-column">
-                <h4>Explore</h4>
-                <a href="index.html">Home</a>
-                <a href="products.html">All Products</a>
-                <a href="aboutus.html">About Us</a>
-                <a href="contactus.html">Contact Us</a>
-            </div>
-
-            <div class="footer-column">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href=""><img src="img/ig.png" alt="Instagram"></a>
-                    <a href=""><img src="img/tiktok.png" alt="Tiktok"></a>
-                    <a href=""><img src="img/fb.png" alt="Facebook"></a>
-                </div>
-
-            </div>
-
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 E & A Cosmetics. All rights reserved.</p>
-        </div>
-    </footer>
-    <script src="slider.js"></script>
+    <?php include 'includes/footer.php'; ?>
 </body>
 </html>

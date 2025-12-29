@@ -8,18 +8,7 @@
     <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
-        </div>
-        <div class="nav-right">
-            <a href="index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="aboutus.html">About Us</a>
-            <a href="contactus.html">Contact us</a>
-            <a href="login.html"><img src="img/acc.png" alt="Account" title="Account"></a>
-        </div>
-    </header>
+    <?php include 'includes/header.php'; ?>
     <div class="container">
     <div class="signup">
         <form action="#">
