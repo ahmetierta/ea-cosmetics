@@ -19,7 +19,7 @@
             <label>Password</label>
             <input type="password" name="" id="password" placeholder="Enter your password">
             <button type="submit" class="signup-button" onclick="showAlert()">Log In</button>
-            <a href="signup.html" style="text-align: center; color: #C14279;"><b>Don’t have an account?</b></a>
+            <a href="signup.php" style="text-align: center; color: #C14279;"><b>Don’t have an account?</b></a>
         </form>
         </div>
     </div>
