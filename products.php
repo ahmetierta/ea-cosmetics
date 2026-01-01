@@ -66,10 +66,10 @@
                 <h3><?php echo $name ?></h3>
                 <?php 
                     $label = "Products";
-                    if(str_contains($p['category'],'eyes') || str_contains($p['category'],'brows')) $label = "Eyes & Brows";
+                    if(str_contains($p['category'],'eyes')) $label = "Eyes & Brows";
                     if(str_contains($p['category'],'face')) $label = "Face";
                     if(str_contains($p['category'],'lips')) $label = "Lips";
-                    if(str_contains($p['category'],'brushes') || str_contains($p['category'],'accessories')) $label = "Brushes & Accessories";
+                    if(str_contains($p['category'],'brushes')) $label = "Brushes & Accessories";
                     if(str_contains($p['category'],'sale')) $label .= " • Sale";
                 ?>
                 <p class="product-category"><?php echo htmlspecialchars($label); ?></p>
