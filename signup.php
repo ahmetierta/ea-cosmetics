@@ -11,7 +11,7 @@
     <?php include 'includes/header.php'; ?>
     <div class="container">
     <div class="signup">
-        <form action="#">
+        <form action="register.php" method="POST" id="registerForm">
             <h1>CREATE AN ACCOUNT</h1>
             <label>Name</label>
             <input type="text" name="" id="name" placeholder="Enter your name">
