@@ -24,7 +24,7 @@
             <label>Password</label>
             <input type="password" name="" id="password" placeholder="Enter your password">
             <label>Confirm Password</label>
-            <input type="password" name="" id="confirmpassword" placeholder="Confirm your password">
+            <input type="password" name="confirm_password" id="confirmpassword" placeholder="Confirm your password">
             <button type="submit" class="signup-button">Sign up</button>
             <a href="login.php" style="text-align: center; color: #C14279;"><b>Already have an account?</b></a>
         </form>

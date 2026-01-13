@@ -12,15 +12,23 @@
     <?php include 'includes/header.php'; ?>
     <div class="container">
     <div class="signup">
-        <form action="#">
+        <form action="login_process.php" method="POST">
             <h1>LOG IN</h1>
-            <label>Email</label>
-            <input type="email" name="" id="email" placeholder="Enter your email">
+            <label>Email or Username</label>
+            <input type="text" name="login" id="login" placeholder="Enter your email or password">
             <label>Password</label>
-            <input type="password" name="" id="password" placeholder="Enter your password">
-            <button type="submit" class="signup-button" onclick="showAlert()">Log In</button>
+            <input type="password" name="password" id="password" placeholder="Enter your password">
+            <button type="submit" class="signup-button">Log In</button>
             <a href="signup.php" style="text-align: center; color: #C14279;"><b>Don’t have an account?</b></a>
         </form>
+
+        <?php
+        session_start();
+        if(!empty($_SESSION["auth_error"])){
+            echo '<p style="color: #b3135d;text-align:center;margin-top:10px;">'.htmlspecialchars($_SESSION["auth_error"]).'</p>';
+            unset($_SESSION["auth_error"]);
+        }
+        ?>
         </div>
     </div>
     
