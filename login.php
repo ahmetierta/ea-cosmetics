@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head> 
@@ -6,7 +11,6 @@
     <title>EA - Log In</title>
     <link rel="icon" href="img/logo1.png">
     <link rel="stylesheet" href="style1.css">
-    <script src="signup.js"></script>
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
@@ -15,7 +19,7 @@
         <form action="login_process.php" method="POST">
             <h1>LOG IN</h1>
             <label>Email or Username</label>
-            <input type="text" name="login" id="login" placeholder="Enter your email or password">
+            <input type="text" name="login" id="login" placeholder="Enter your email or username">
             <label>Password</label>
             <input type="password" name="password" id="password" placeholder="Enter your password">
             <button type="submit" class="signup-button">Log In</button>
@@ -23,7 +27,6 @@
         </form>
 
         <?php
-        session_start();
         if(!empty($_SESSION["auth_error"])){
             echo '<p style="color: #b3135d;text-align:center;margin-top:10px;">'.htmlspecialchars($_SESSION["auth_error"]).'</p>';
             unset($_SESSION["auth_error"]);

@@ -50,9 +50,5 @@ $stmt = $pdo->prepare("INSERT INTO users (name, surname, email, username, passwo
 VALUES (?, ?, ?, ?, ?, 'user')");
 $stmt->execute([$name, $surname, $email, $username, $hash]);
 
-$_SESSION["user_id"] = $pdo->lastInsertId();
-$_SESSION["username"] = $username;
-$_SESSION["role"] = "user";
-
-header("Location: index.php");
+header("Location: login.php");
 exit;
