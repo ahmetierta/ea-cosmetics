@@ -89,6 +89,9 @@ header{
     border-color: #C14279;
     box-shadow: 0 0 0 3px rgba(255,129,192,0.25);
 }
+#remember {
+    flex-direction: flex-start;
+}
 .signup-button{
     padding: 12px 15px;
     margin-top: 15px;

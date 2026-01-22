@@ -22,6 +22,12 @@ if (session_status() === PHP_SESSION_NONE) {
             <input type="text" name="login" id="login" placeholder="Enter your email or username">
             <label>Password</label>
             <input type="password" name="password" id="password" placeholder="Enter your password">
+            <div class="remember-row">
+                <label>
+                    <input type="checkbox" name="remember" id="remember">
+                    <span>Remember me</span>
+                </label>
+            </div>
             <button type="submit" class="signup-button">Log In</button>
             <a href="signup.php" style="text-align: center; color: #C14279;"><b>Don’t have an account?</b></a>
         </form>
