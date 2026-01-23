@@ -72,7 +72,7 @@ body{
 }
 .signup input:focus{
     outline: none;
-    border-color: ##C14279;
+    border-color: #C14279;
     box-shadow: 0 0 0 3px rgba(255,129,192,0.25);
 }
 .signup-button{

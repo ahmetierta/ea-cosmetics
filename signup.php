@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EA - Sign Up</title>
     <link rel="icon" href="img/logo1.png">
+    <link rel="stylesheet" href="menufooter.css">
     <link rel="stylesheet" href="style1.css">
 </head>
 <body>
