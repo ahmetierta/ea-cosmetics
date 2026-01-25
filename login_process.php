@@ -1,61 +1,58 @@
-<?php 
-if(session_status() === PHP_SESSION_NONE){
+<?php
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require "config/db.php";
 
-if($_SERVER["REQUEST_METHOD"] !== "POST"){
+require "config/db.php";   
+require "models/User.php";
+require "services/AuthValidator.php";
+require "services/RememberMe.php";
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     header("Location: login.php");
     exit;
 }
 
 $login = trim($_POST["login"] ?? "");
 $password = $_POST["password"] ?? "";
+$remember = !empty($_POST["remember"]);
 
-if($login === "" || $password===""){
-    $_SESSION["auth_error"] = "Please fill all fields.";
+$data = [
+    "login" => $login,
+    "password" => $password
+];
+
+$error = AuthValidator::validateLogin($data);
+if ($error) {
+    $_SESSION["auth_error"] = $error;
     header("Location: login.php");
     exit;
 }
 
-$stmt = $pdo->prepare("SELECT id,username, password_hash,role FROM users WHERE email = ? OR username = ? LIMIT 1");
-$stmt ->execute([$login,$login]);
-$user = $stmt ->fetch(PDO::FETCH_ASSOC);
+$db = new Database();
+$conn = $db->getConnection();
+$userModel = new User($conn);
 
-if(!$user || !password_verify($password , $user["password_hash"])){
+$user = $userModel->findByLoginRow($login);  
+
+if (!$user || !password_verify($password, $user["password_hash"])) {
     $_SESSION["auth_error"] = "Wrong email/username or password";
     header("Location: login.php");
     exit;
 }
 
+session_regenerate_id(true);
+
 $_SESSION["user_id"] = (int)$user["id"];
 $_SESSION["username"] = $user["username"];
 $_SESSION["role"] = $user["role"];
 
-if(!empty($_POST["remember"])){
-    $token = bin2hex(random_bytes(32));
-    $tokenHash = hash("sha256",$token);
-
-    $expiresSeconds = 60 * 60 * 24 * 30;
-    $expiresAt = date("Y-m-d H:i:s", time() + $expiresSeconds);
-
-    $del = $pdo->prepare("DELETE FROM user_tokens WHERE user_id = ?");
-    $del->execute([$user["id"]]);
-
-    $ins = $pdo->prepare("INSERT INTO user_tokens (user_id,token_hash,expires_at)VALUES(? ,?, ?)");
-    $ins->execute([$user["id"],$tokenHash, $expiresAt]);
-    setcookie(
-        "remember_token",
-        $token,
-        [
-            "expires" => time() + expiresSeconds,
-            "path" => "/",
-            "secure" => false,
-            "httponly" => true,
-        ]
-    );
+if ($remember) {
+    $rememberService = new RememberMe($userModel);
+    $rememberService->issue((int)$user["id"]);
 }
-if($user["role"] === "admin"){
+
+if ($user["role"] === "admin") {
     header("Location: admin/dashboard.php");
     exit;
 }

@@ -43,6 +43,12 @@ if(empty($_SESSION["user_id"]) && !empty($_COOKIE["remember_token"])){
         <?php if (($_SESSION["role"] ?? "") === "admin") : ?>
             <a href="admin/dashboard.php">Dashboard</a>
             <?php endif; ?>
+            <?php if (($_SESSION["role"] ?? "") === "user") : ?>
+            <a href="cart.php">
+                <img src="img/basket.png" alt="Basket" title="Basket">
+            </a>
+            <?php endif; ?>
+
             <a href= "logout.php">Logout</a>
             <?php else: ?>
         <a href="login.php">

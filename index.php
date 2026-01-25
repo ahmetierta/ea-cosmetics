@@ -15,7 +15,7 @@
             <h3>Timeless Luxury Edition</h3>
             <h1>E & A </h1>
             <p>A touch of color. A soft glow. A moment for yourself — because you deserve to feel beautiful.</p>
-            <button><a href="products.html">Explore more</a></button>
+            <button><a href="products.php">Explore more</a></button>
         </div>
     </section>
 
@@ -114,14 +114,14 @@
             <button class="slide-btn next"> > </button>
         </div> 
         <div class="view-more-sales">
-            <a href="products.html">View more deals</a>
+            <a href="products.php">View more deals</a>
         </div>
 
     </section>
     <section class="christmas-section">
         <div class="christmas-header">
-            <span class="christmas-tag">Christmas Limited Edition✨</span>
-            <h2>Advent Calendar Collection🎄</h2>
+            <span class="christmas-tag">Christmas Limited Edition</span>
+            <h2>Advent Calendar Collection</h2>
             <p>Celebrate the season with our exclusive Advent Calendars — curated beauty moments for every day until Christmas.</p>
         </div>
         <div class="calendar-grid">
@@ -134,7 +134,7 @@
                     <h3>Classic Beauty Advent</h3>
                     <p>24 essentials inspired by soft, everyday elegance.</p>
                     <span class="calendar-price">49.90€</span>
-                    <a href="products.html" class="calendar-cta">Shop now</a>
+                    <a href="products.php" class="calendar-cta">Shop now</a>
                 </div>
             </div>
 
@@ -146,7 +146,7 @@
                     <h3>Glazed Lip & Glow</h3>
                     <p>High-shine glosses, soft glow & festive shimmer.</p>
                     <span class="calendar-price">59.90€</span>
-                    <a href="products.html" class="calendar-cta">Shop now</a>
+                    <a href="products.php" class="calendar-cta">Shop now</a>
                 </div>
             </div>
 
@@ -158,12 +158,13 @@
                     <h3>Full Glam Advent</h3>
                     <p>Everything you need for the perfect festive glam.</p>
                     <span class="calendar-price">69.90€</span>
-                    <a href="products.html" class="calendar-cta">Shop now</a>
+                    <a href="products.php" class="calendar-cta">Shop now</a>
                 </div>
             </div>
 
         </div>
     </section>
     <?php include 'includes/footer.php'; ?>
+    <script src="slider.js"></script>
 </body>
 </html>
