@@ -5,6 +5,9 @@ if(session_status() === PHP_SESSION_NONE){
 
 require "config/db.php";
 
+$db = new Database();
+$pdo = $db->getConnection();
+
 if(empty($_SESSION["user_id"]) && !empty($_COOKIE["remember_token"])){
     $tokenHash = hash("sha256", $_COOKIE["remember_token"]);
 

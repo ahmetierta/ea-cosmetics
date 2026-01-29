@@ -53,7 +53,7 @@ if ($remember) {
 }
 
 if ($user["role"] === "admin") {
-    header("Location: admin/dashboard.php");
+    header("Location: index.php");
     exit;
 }
 

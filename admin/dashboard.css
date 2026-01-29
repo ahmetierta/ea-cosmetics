@@ -1,0 +1,75 @@
+*{box-sizing:border-box;font-family:Arial,sans-serif}
+body{margin:0;background:#1a0b14;color:#fff}
+
+.layout{display:flex;min-height:100vh}
+
+.sidebar{
+  width:230px;
+  background:#2b0f1f;
+  padding:20px;
+}
+.sidebar h2{color:#ff4fa3}
+.sidebar .welcome{font-size:14px;color:#f5a1c5}
+
+.sidebar nav a{
+  display:block;
+  padding:10px;
+  margin:6px 0;
+  color:#f5c2da;
+  text-decoration:none;
+  border-radius:6px;
+}
+.sidebar nav a:hover,
+.sidebar nav a.active{
+  background:#ff4fa3;
+  color:#000;
+}
+
+.content{flex:1;padding:20px}
+.topbar{
+  background:#3b132a;
+  padding:12px;
+  font-weight:bold;
+  border-radius:8px;
+  margin-bottom:20px;
+}
+
+.card{
+  background:#3b132a;
+  padding:20px;
+  border-radius:10px;
+  width:200px;
+  text-align:center;
+  font-size:18px;
+}
+
+/* TABLE */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+}
+th,td{
+  padding:10px;
+  border:1px solid #ff4fa3;
+}
+th{background:#ff4fa3;color:#000}
+tr:nth-child(even){background:#2b0f1f}
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.btn-back{
+  padding:8px 12px;
+  border-radius:8px;
+  text-decoration:none;
+  background:#ff4fa3;   
+  color:#000;
+  font-weight:700;
+}
+.btn-back:hover{
+  opacity:0.9;
+}
+

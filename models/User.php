@@ -73,4 +73,14 @@ class User {
 
         return $stmt->execute();
     }
+    
+    public function getAllUsers(): array {
+        $query = "SELECT id,username,name,surname,email,role 
+        FROM {$this->table_name}
+        ORDER BY id DESC";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }
