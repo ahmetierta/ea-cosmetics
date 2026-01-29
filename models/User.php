@@ -83,4 +83,68 @@ class User {
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    public function getById(int $id): ?array {
+        $query = "SELECT id,name,surname,email,username,role
+        FROM {$this->table_name}
+        WHERE id = :id
+        LIMIT 1";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":id",$id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row ?: null;
+    }
+    public function existsEmailOrUsernameExcept(string $email, string $username, int $excludeId): bool {
+        $query = "SELECT id
+            FROM {$this->table_name}
+            WHERE (email = :email OR username = :username)
+                AND id <> :id
+            LIMIT 1";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":id", $excludeId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return($stmt->rowCount() > 0);
+    }
+    public function updateProfile(
+        int $id, 
+        string $name, 
+        string $surname, 
+        string $email, 
+        string $username, ?
+        string $newPassword):bool {
+        if($newPassword !== null && $newPassword !== ""){
+            $passHash = password_hash($newPassword, PASSWORD_DEFAULT);
+
+            $query = "UPDATE {$this->table_name}
+                    SET name = :name,
+                        surname = :surname,
+                        email = :email,
+                        username = :username,
+                        password_hash = :pass_hash
+                    WHERE id = :id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(":pass_hash", $passHash);
+        }else{
+            $query = "UPDATE {$this->table_name}
+                    SET name = :name,
+                        surname = :surname,
+                        email= :email,
+                        username = :username
+                     WHERE id = :id";
+            $stmt = $this->conn->prepare($query);
+        }
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":surname", $surname);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
 }

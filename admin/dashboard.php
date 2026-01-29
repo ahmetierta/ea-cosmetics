@@ -17,6 +17,63 @@
     $users = $userModel->getAllUsers();
     $page = $_GET["page"] ?? "users";
     $adminName = $_SESSION["username"] ?? "admin";
+
+    $profileError = null;
+    $profileSuccess = null;
+
+    if(!empty($_SESSION["profile_success"])){
+        $profileSuccess = $_SESSION["profile_success"];
+        unset($_SESSION["profile_success"]);
+    }
+
+    $adminId = (int)($_SESSION["user_id"] ?? 0);
+
+    if($page === "profile"){
+        $adminData = $userModel->getById($adminId);
+
+        if($_SERVER["REQUEST_METHOD"] === "POST"){
+            $name = trim($_POST["name"] ?? "");
+            $surname = trim($_POST["surname"] ?? "");
+            $email = trim($_POST["email"] ?? "");
+            $usernameInput = trim($_POST["username"] ?? "");
+
+            $newPass = $_POST["new_password"] ?? "";
+            $confirmPass = $_POST["confirm_password"] ?? "";
+
+            if ($name === "" || $surname === "" || $email === "" || $usernameInput === "") {
+                $profileError = "Please fill all fields (except password).";
+            } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $profileError = "Email is not valid.";
+            } elseif ($userModel->existsEmailOrUsernameExcept($email, $usernameInput, $adminId)) {
+                $profileError = "Email or username already exists.";
+            } elseif ($newPass !== "") {
+                if (strlen($newPass) < 8) {
+                    $profileError = "New password must be at least 8 characters.";
+                } elseif ($newPass !== $confirmPass) {
+                    $profileError = "Passwords do not match.";
+                }
+            }
+            if ($profileError === null) {
+            $passToSave = ($newPass !== "") ? $newPass : null;
+
+            if ($userModel->updateProfile($adminId, $name, $surname, $email, $usernameInput, $passToSave)) {
+                $_SESSION["username"] = $usernameInput;
+
+                $_SESSION["profile_success"] = "Profile updated successfully!";
+                header("Location: dashboard.php?page=profile");
+                exit;
+            } else {
+                $profileError = "Failed to update profile.";
+            }
+        }
+        $adminData = [
+            "name" => $name,
+            "surname" => $surname,
+            "email" => $email,
+            "username" => $usernameInput
+        ];
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,6 +125,58 @@
         </tr>
         <?php endforeach; ?>
       </table>
+    <?php elseif ($page === "profile"): ?>
+        <h3>Edit Profile</h3>
+
+    <div class="panel">
+
+  <?php if (!empty($profileSuccess)): ?>
+    <div class="msg success"><?= htmlspecialchars($profileSuccess) ?></div>
+  <?php endif; ?>
+
+  <?php if (!empty($profileError)): ?>
+    <div class="msg error"><?= htmlspecialchars($profileError) ?></div>
+  <?php endif; ?>
+
+  <form class="form" method="POST" action="?page=profile">
+    <div>
+      <label>Name</label>
+      <input class="input" type="text" name="name" value="<?= htmlspecialchars($adminData["name"] ?? "") ?>">
+    </div>
+
+    <div>
+      <label>Surname</label>
+      <input class="input" type="text" name="surname" value="<?= htmlspecialchars($adminData["surname"] ?? "") ?>">
+    </div>
+
+    <div>
+      <label>Email</label>
+      <input class="input" type="email" name="email" value="<?= htmlspecialchars($adminData["email"] ?? "") ?>">
+    </div>
+
+    <div>
+      <label>Username</label>
+      <input class="input" type="text" name="username" value="<?= htmlspecialchars($adminData["username"] ?? "") ?>">
+    </div>
+
+    <div class="full"><hr></div>
+    <div class="full" style="font-weight:800;color:#7a1f45;">Change Password (optional)</div>
+
+    <div>
+      <label>New Password</label>
+      <input class="input" type="password" name="new_password" placeholder="Leave empty to keep current">
+    </div>
+
+    <div>
+      <label>Confirm Password</label>
+      <input class="input" type="password" name="confirm_password">
+    </div>
+
+    <button class="btn-primary" type="submit">Save Changes</button>
+  </form>
+</div>
+
+
 
     <?php else: ?>
       <p>Coming soon...</p>
