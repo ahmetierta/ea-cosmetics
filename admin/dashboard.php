@@ -74,6 +74,18 @@
         ];
         }
     }
+    $messages = [];
+    if ($page === "messages") {
+        $stmt = $conn->prepare("SELECT id, first_name, last_name, email, message, created_at
+                            FROM contact_messages
+                            ORDER BY id DESC");
+        $stmt->execute();
+        $messages = $stmt->fetchAll();
+    }
+    $messagesCount = 0;
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM contact_messages");
+    $stmt->execute();
+    $messagesCount = (int)$stmt->fetchColumn();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,6 +108,7 @@
       <a class="<?= $page==='users'?'active':'' ?>" href="?page=users">Users</a>
       <a class="<?= $page==='profile'?'active':'' ?>" href="?page=profile">Edit Profile</a>
       <a class="<?= $page==='products'?'active':'' ?>" href="?page=products">Products</a>
+      <a class="<?= $page==='messages'?'active':'' ?>" href="?page=messages">Messages</a>
       <a href="../logout.php">Logout</a>
     </nav>
   </aside>
@@ -105,8 +118,11 @@
     </header>
 
     <?php if ($page === "dashboard"): ?>
-      <h3>Overview</h3>
-      <div class="card">Total users: <b><?= count($users) ?></b></div>
+        <h3>Overview</h3>
+        <div style="display:flex;gap:12px;">
+            <div class="card">Total users: <b><?= count($users) ?></b></div>
+            <div class="card">Total messages: <b><?= $messagesCount ?></b></div>
+        </div>
 
     <?php elseif ($page === "users"): ?>
       <h3>Users</h3>
@@ -175,9 +191,24 @@
     <button class="btn-primary" type="submit">Save Changes</button>
   </form>
 </div>
-
-
-
+    <?php elseif ($page === "messages"): ?>
+  <h3>Contact Messages</h3>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Message</th>
+      <th>Date</th>
+    </tr>
+    <?php foreach ($messages as $m): ?>
+    <tr>
+      <td><?= htmlspecialchars($m["first_name"]." ".$m["last_name"]) ?></td>
+      <td><?= htmlspecialchars($m["email"]) ?></td>
+      <td><?= htmlspecialchars($m["message"]) ?></td>
+      <td><?= htmlspecialchars($m["created_at"]) ?></td>
+    </tr>
+    <?php endforeach; ?>
+  </table>
     <?php else: ?>
       <p>Coming soon...</p>
     <?php endif; ?>

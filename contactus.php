@@ -66,17 +66,36 @@
             </ul>
         </div>
 
-        <form>
+
+        <form method="POST" action="contact_submit.php">
             <label>First Name</label>
-            <input type="text">
+            <input type="text" name="first_name" required>
+
             <label>Last Name</label>
-            <input type="text">
+            <input type="text" name="last_name" required>
+
             <label>Email</label>
-            <input type="email">
+            <input type="email" name="email" required>
+
             <label>Message</label>
-            <textarea></textarea>
-            <button>Send Message</button>
+            <textarea name="message" required></textarea>
+
+            <button type="submit">Send Message</button>
         </form>
+        <?php if (!empty($_SESSION["contact_success"])): ?>
+  <p style="font-weight:bold;color:green;">
+    <?= htmlspecialchars($_SESSION["contact_success"]); ?>
+  </p>
+  <?php unset($_SESSION["contact_success"]); ?>
+<?php endif; ?>
+
+<?php if (!empty($_SESSION["contact_error"])): ?>
+  <p style="font-weight:bold;color:red;">
+    <?= htmlspecialchars($_SESSION["contact_error"]); ?>
+  </p>
+  <?php unset($_SESSION["contact_error"]); ?>
+<?php endif; ?>
+
     </div>
 </section>
 
