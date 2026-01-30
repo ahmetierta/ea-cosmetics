@@ -86,6 +86,17 @@
     $stmt = $conn->prepare("SELECT COUNT(*) FROM contact_messages");
     $stmt->execute();
     $messagesCount = (int)$stmt->fetchColumn();
+
+    require_once __DIR__ . "/../repositories/ProductRepository.php";
+    require_once __DIR__ . "/../models/Product.php";
+
+    $productRepo = new ProductRepository($conn);
+    $products = [];
+
+    if ($page === "products") {
+      $products = $productRepo->getAll();
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,7 +106,7 @@
 <title>Admin Dashboard</title>
 <link rel="stylesheet" href="dashboard.css">
 </head>
-<body>
+<body class="admin-body">
 
 <div class="layout">
 
@@ -209,9 +220,35 @@
     </tr>
     <?php endforeach; ?>
   </table>
-    <?php else: ?>
-      <p>Coming soon...</p>
-    <?php endif; ?>
+    <?php elseif ($page === "products"): ?>
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+    <h3 style="margin:0;">Products</h3>
+    <a class="btn-back" href="products/add.php">+ Add Product</a>
+  </div>
+
+  <table>
+    <tr>
+      <th>Name</th><th>Description</th><th>Price</th><th>Qty</th><th>Actions</th>
+    </tr>
+    <?php foreach ($products as $p): ?>
+      <tr>
+        <td><?= htmlspecialchars($p["name"]) ?></td>
+        <td><?= htmlspecialchars($p["description"]) ?></td>
+        <td>€<?= htmlspecialchars($p["price"]) ?></td>
+        <td><?= (int)$p["quantity"] ?></td>
+        <td>
+          <a href="products/edit.php?id=<?= (int)$p["id"] ?>">Edit</a> |
+          <form method="POST" action="products/delete.php" style="display:inline;">
+            <input type="hidden" name="id" value="<?= (int)$p["id"] ?>">
+            <button type="submit" onclick="return confirm('Delete this product?')">Delete</button>
+          </form>
+
+        </td>
+      </tr>
+    <?php endforeach; ?>
+  </table>
+<?php endif; ?>
+
 
   </main>
 </div>

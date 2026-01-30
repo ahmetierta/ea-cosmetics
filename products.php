@@ -1,3 +1,14 @@
+<?php
+require_once __DIR__ . "/config/db.php";
+require_once __DIR__ . "/repositories/ProductRepository.php";
+
+$db = new Database();
+$conn = $db->getConnection();
+
+$repo = new ProductRepository($conn);
+$products = $repo->getAll(); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +18,9 @@
     <link rel="icon" href="img/logo1.png">
     <link rel="stylesheet" href="menufooter.css">
     <link rel="stylesheet" href="style2.css">
+    <style>
+        body{background:#FFF8FC !important;}
+    </style>
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
@@ -50,44 +64,47 @@
     </section>
 
     <section class="products-grid" id="products-list">
-        <?php 
-            include 'products-data.php';
-            
-            foreach($products as $p){
-                $category = htmlspecialchars($p['category']);
-                $name = htmlspecialchars($p['name']);
-                $img = htmlspecialchars($p['img']);
-                $alt = htmlspecialchars($p['alt']);
+        <?php foreach($products as $p):
+    $category = htmlspecialchars($p["category"] ?? "all");
+    $name = htmlspecialchars($p["name"] ?? "");
+    $img = htmlspecialchars($p["image"] ?? "img/default-product.png");
+    $alt = htmlspecialchars($p["alt"] ?? "Product");
 
-                $price = number_format((float)$p['price'],2);
-                $sale = $p['sale_price'] !== null ? number_format((float)$p['sale_price'], 2) :null;
-        ?>
-            <div class="product-card" data-category="<?php echo $category; ?>">
-                <img src="<?php echo $img; ?>" alt="<?php echo htmlspecialchars($alt); ?>">
-                <h3><?php echo $name ?></h3>
-                <?php 
-                    $label = "Products";
-                    if(str_contains($p['category'],'eyes')) $label = "Eyes & Brows";
-                    if(str_contains($p['category'],'face')) $label = "Face";
-                    if(str_contains($p['category'],'lips')) $label = "Lips";
-                    if(str_contains($p['category'],'brushes')) $label = "Brushes & Accessories";
-                    if(str_contains($p['category'],'sale')) $label .= " • Sale";
-                ?>
-                <p class="product-category"><?php echo htmlspecialchars($label); ?></p>
+    $price = number_format((float)$p["price"], 2);
+    $sale  = ($p["sale_price"] !== null && $p["sale_price"] !== "")
+        ? number_format((float)$p["sale_price"], 2)
+        : null;
+    ?>
+    <a class="product-link" href="singleproduct.php?id=<?= (int)$p["id"] ?>">
+    <div class="product-card" data-category="<?= $category ?>">
+      <img src="<?= $img ?>" alt="<?= $alt ?>">
+      <h3><?= $name ?></h3>
 
-                <p class="product-price">
-                    <?php if($sale !== null) { ?>
-                        <span class="old-price">€<?php echo $price; ?></span> €<?php echo $sale; ?>
-                    <?php } else { ?>
-                        €<?php echo $price; ?>
-                    <?php } ?>
-                </p>
-            </div>
-            <?php } ?>
+      <?php
+        $label = "Products";
+        if (strpos($category, "eyes") !== false) $label = "Eyes & Brows";
+        if (strpos($category, "face") !== false) $label = "Face";
+        if (strpos($category, "lips") !== false) $label = "Lips";
+        if (strpos($category, "brushes") !== false) $label = "Brushes & Accessories";
+        if (strpos($category, "sale") !== false) $label .= " • Sale";
+
+      ?>
+      <p class="product-category"><?= htmlspecialchars($label) ?></p>
+
+      <p class="product-price">
+        <?php if ($sale !== null): ?>
+          <span class="old-price">€<?= $price ?></span> €<?= $sale ?>
+        <?php else: ?>
+          €<?= $price ?>
+        <?php endif; ?>
+      </p>
+    </div>
+    </a>
+<?php endforeach; ?>
     </section>
     <div class="pagination" id="pagination"></div>
-
     </main>
+    <div class="pink-line"></div>
     <script src="products.js" defer></script>
     <?php include 'includes/footer.php'; ?>
 

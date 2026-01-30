@@ -1,6 +1,10 @@
 *{box-sizing:border-box;font-family: 'Verdana' , sans-serif;}
-body{margin:0;background:#ffedf4;color:#222;
-font-family: 'Verdana' , sans-serif;}
+.admin-body{
+  margin:0;
+  background:#ffedf4;
+  color:#222;
+  font-family: 'Verdana' , sans-serif;
+}
 
 .layout{display:flex;min-height:100vh}
 
