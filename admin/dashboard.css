@@ -144,3 +144,20 @@ label{
 }
 .msg.success{border-color:#8ad1a2;background:#f2fff6}
 .msg.error{border-color:#f2a3b9;background:#fff2f6}
+.topbar{
+  max-width: 720px;
+  margin: 0 auto 20px;
+  padding: 14px 18px;
+  border-radius: 14px;
+}
+
+.content > .topbar{
+  max-width: 720px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.content > .panel{
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -43,8 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body class="admin-body">
 
 <div class="layout">
-  <main class="content" style="max-width:900px;margin:0 auto;">
-    <header class="topbar">
+  <main class="content" style="max-width:720px;margin:0 auto;">
+    <header class="topbar topbar-wrap">
       <span>Add Product</span>
       <a class="btn-back" href="../dashboard.php?page=products">Go Back</a>
     </header>

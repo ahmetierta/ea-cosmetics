@@ -43,32 +43,86 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <?php if ($error): ?>
   <p style="color:red;"><?= htmlspecialchars($error) ?></p>
 <?php endif; ?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit Product</title>
+  <link rel="stylesheet" href="../dashboard.css">
+</head>
 
-<form method="POST">
-  <label>Name</label><br>
-  <input name="name" value="<?= htmlspecialchars($product["name"]) ?>" required><br><br>
+<body class="admin-body">
 
-  <label>Category</label><br>
-  <input name="category" value="<?= htmlspecialchars($product["category"]) ?>" placeholder="eyes / face / lips / brushes / sale" required><br><br>
+<div class="layout">
+  <main class="content" style="max-width:720px;margin:0 auto;">
 
-  <label>Image (path)</label><br>
-  <input name="image" value="<?= htmlspecialchars($product["image"]) ?>" placeholder="img/prod-1.png" required><br><br>
+    <header class="topbar topbar-wrap">
+      <span>Edit Product</span>
+      <a class="btn-back" href="../dashboard.php?page=products">← Go Back</a>
+    </header>
 
-  <label>Alt text</label><br>
-  <input name="alt" value="<?= htmlspecialchars($product["alt"]) ?>" required><br><br>
+    <div class="panel">
+      <?php if ($error): ?>
+        <div class="msg error"><?= htmlspecialchars($error) ?></div>
+      <?php endif; ?>
 
-  <label>Description</label><br>
-  <textarea name="description" required><?= htmlspecialchars($product["description"]) ?></textarea><br><br>
+      <form class="form" method="POST" action="">
 
-  <label>Price</label><br>
-  <input name="price" type="number" step="0.01" value="<?= htmlspecialchars($product["price"]) ?>" required><br><br>
+        <div>
+          <label>Name</label>
+          <input class="input" name="name" value="<?= htmlspecialchars($product['name']) ?>" required>
+        </div>
 
-  <label>Sale price (optional)</label><br>
-  <input name="sale_price" type="number" step="0.01"
-         value="<?= htmlspecialchars($product["sale_price"] ?? "") ?>"><br><br>
+        <div>
+          <label>Category</label>
+          <input class="input" name="category" value="<?= htmlspecialchars($product['category']) ?>" required>
+        </div>
 
-  <label>Quantity</label><br>
-  <input name="quantity" type="number" value="<?= (int)$product["quantity"] ?>" required><br><br>
+        <div>
+          <label>Image path</label>
+          <input class="input" name="image" value="<?= htmlspecialchars($product['image']) ?>" required>
+        </div>
 
-  <button type="submit">Save</button>
-</form>
+        <div>
+          <label>Alt text</label>
+          <input class="input" name="alt" value="<?= htmlspecialchars($product['alt']) ?>" required>
+        </div>
+
+        <div class="full">
+          <label>Description</label>
+          <textarea class="input" name="description" rows="4" required><?= htmlspecialchars($product['description']) ?></textarea>
+        </div>
+
+        <div>
+          <label>Price</label>
+          <input class="input" name="price" type="number" step="0.01"
+                 value="<?= htmlspecialchars($product['price']) ?>" required>
+        </div>
+
+        <div>
+          <label>Sale Price (optional)</label>
+          <input class="input" name="sale_price" type="number" step="0.01"
+                 value="<?= htmlspecialchars($product['sale_price'] ?? '') ?>">
+        </div>
+
+        <div>
+          <label>Quantity</label>
+          <input class="input" name="quantity" type="number"
+                 value="<?= (int)$product['quantity'] ?>" required>
+        </div>
+
+        <div class="full">
+          <button class="btn-primary" type="submit">Save Changes</button>
+        </div>
+
+      </form>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>
+
+
+

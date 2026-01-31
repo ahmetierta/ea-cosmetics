@@ -153,7 +153,7 @@
         <?php endforeach; ?>
       </table>
     <?php elseif ($page === "profile"): ?>
-        <h3>Edit Profile</h3>
+        <h3 style="text-align:center;">Edit Profile</h3>
 
     <div class="panel">
 
@@ -236,14 +236,18 @@
         <td><?= htmlspecialchars($p["description"]) ?></td>
         <td>€<?= htmlspecialchars($p["price"]) ?></td>
         <td><?= (int)$p["quantity"] ?></td>
-        <td>
-          <a href="products/edit.php?id=<?= (int)$p["id"] ?>">Edit</a> |
-          <form method="POST" action="products/delete.php" style="display:inline;">
-            <input type="hidden" name="id" value="<?= (int)$p["id"] ?>">
-            <button type="submit" onclick="return confirm('Delete this product?')">Delete</button>
-          </form>
+        <td class="actions">
+          <a class="btn-edit" href="products/edit.php?id=<?= (int)$p["id"] ?>">Edit</a>
 
+          <form method="POST" action="products/delete.php" style="display:inline;">
+          <input type="hidden" name="id" value="<?= (int)$p["id"] ?>">
+          <button class="btn-delete" type="submit"
+          onclick="return confirm('Delete this product?')">
+          Delete
+          </button>
+          </form>
         </td>
+
       </tr>
     <?php endforeach; ?>
   </table>
