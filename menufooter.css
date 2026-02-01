@@ -52,7 +52,6 @@ body{
     cursor: pointer;
 }
 
-/* ===== FOOTER ===== */
 .footer{
     background-color: #FFF8FC;
     padding: 60px 8%;
@@ -143,7 +142,6 @@ body{
     color: #999;
 }
 
-/* ===== RESPONSIVE (header + footer) ===== */
 @media (max-width:900px){
     .footer-nav{
         gap: 40px;

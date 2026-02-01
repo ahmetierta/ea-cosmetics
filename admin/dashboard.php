@@ -86,6 +86,11 @@
     $stmt = $conn->prepare("SELECT COUNT(*) FROM contact_messages");
     $stmt->execute();
     $messagesCount = (int)$stmt->fetchColumn();
+    $productsCount = 0;
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM products");
+    $stmt->execute();
+    $productsCount = (int)$stmt->fetchColumn();
+
 
     require_once __DIR__ . "/../repositories/ProductRepository.php";
     require_once __DIR__ . "/../models/Product.php";
@@ -133,6 +138,7 @@
         <div style="display:flex;gap:12px;">
             <div class="card">Total users: <b><?= count($users) ?></b></div>
             <div class="card">Total messages: <b><?= $messagesCount ?></b></div>
+            <div class="card">Total products: <b><?= $productsCount ?></b></div>
         </div>
 
     <?php elseif ($page === "users"): ?>
@@ -237,14 +243,14 @@
         <td>€<?= htmlspecialchars($p["price"]) ?></td>
         <td><?= (int)$p["quantity"] ?></td>
         <td class="actions">
-          <a class="btn-edit" href="products/edit.php?id=<?= (int)$p["id"] ?>">Edit</a>
+          <a id="product-edit-<?= (int)$p["id"] ?>" class="btn-edit action-edit"
+            href="products/edit.php?id=<?= (int)$p["id"] ?>">Edit</a>
 
-          <form method="POST" action="products/delete.php" style="display:inline;">
-          <input type="hidden" name="id" value="<?= (int)$p["id"] ?>">
-          <button class="btn-delete" type="submit"
-          onclick="return confirm('Delete this product?')">
+          <button id="product-delete-<?= (int)$p["id"] ?>" class="btn-delete action-delete"
+          type="submit" onclick="return confirm('Delete this product?')">
           Delete
           </button>
+
           </form>
         </td>
 

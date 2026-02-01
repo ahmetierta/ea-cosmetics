@@ -93,7 +93,7 @@ $products = $repo->getAll();
 
       <p class="product-price">
         <?php if ($sale !== null): ?>
-          <span class="old-price">€<?= $price ?></span> €<?= $sale ?>
+          <span class="old-price" style="text-decoration:line-through">€<?= $price ?></span> €<?= $sale ?>
         <?php else: ?>
           €<?= $price ?>
         <?php endif; ?>

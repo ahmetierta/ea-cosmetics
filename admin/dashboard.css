@@ -161,3 +161,40 @@ label{
   margin-left: auto;
   margin-right: auto;
 }
+td.actions{
+  display:flex;
+  flex-direction:column;
+  gap:10px;          
+  align-items:flex-start;
+}
+
+td.actions a.action-edit{
+  display:inline-block;
+  padding:4px 8px;   
+  border-radius:6px;
+  text-decoration:none;
+  background:#fff;
+  border:1px solid #ff4fa3;
+  color:#e91e63;
+  font-weight:700;
+  font-size:12px;
+}
+
+td.actions a.action-edit:hover{
+  background:#fde4ef;
+}
+
+td.actions button.action-delete{
+  padding:4px 8px;    
+  border-radius:6px;
+  border:1px solid #ff4fa3;
+  background:#e91e63;
+  color:#fff;
+  font-weight:800;
+  cursor:pointer;
+  font-size:12px;
+}
+
+td.actions button.action-delete:hover{
+  opacity:0.9;
+}
