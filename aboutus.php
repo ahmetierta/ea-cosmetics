@@ -47,7 +47,7 @@
     </div>
 
     <div class="influencer-row">
-        <div class="influencer-card" style="margin-right:120px;">
+        <div class="influencer-card" >
             <img src="img/addisonrea.png" alt="">
             <p><b>Addison Rae</b><br>Influencer working with us</p>
         </div>
@@ -65,7 +65,7 @@
         </div>
     </div>
 </div>
-
+<div class="pink-line"></div>
 <?php include 'includes/footer.php'; ?>
 
 </body>

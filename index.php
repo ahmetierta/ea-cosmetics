@@ -164,6 +164,49 @@
 
         </div>
     </section>
+    <section class="why-ea">
+    <div class="why-ea-header">
+        <h2>Why choose us</h2>
+        <p>Quality that lasts, fast support, and deals you’ll love — every season.</p>
+    </div>
+
+    <div class="why-ea-grid">
+
+        <article class="why-ea-card">
+        <div class="why-ea-collage">
+            <img class="main" src="img/why-quality-main.jpg" alt="Premium quality">
+            <img class="float f1" src="img/why-quality-1.jpg" alt="">
+            <img class="float f2" src="img/why-quality-2.jpg" alt="">
+        </div>
+        <h3>Premium Quality</h3>
+        <p>Curated beauty essentials with reliable formulas — made to look good and feel good.</p>
+        <a class="why-ea-btn" href="products.php">Explore products</a>
+        </article>
+
+        <article class="why-ea-card">
+        <div class="why-ea-collage">
+            <img class="main" src="img/why-support-main.jpg" alt="Fast support">
+            <img class="float f1" src="img/why-support-1.jpg" alt="">
+            <img class="float f2" src="img/why-support-2.jpg" alt="">
+        </div>
+        <h3>Fast Support</h3>
+        <p>Quick replies, order help, and product guidance — whenever you need us.</p>
+        <a class="why-ea-btn" href="contactus.php">Contact us</a>
+        </article>
+
+        <article class="why-ea-card">
+        <div class="why-ea-collage">
+            <img class="main" src="img/why-offers-main.jpg" alt="Great offers">
+            <img class="float f1" src="img/why-offers-1.jpg" alt="">
+            <img class="float f2" src="img/why-offers-2.jpg" alt="">
+        </div>
+        <h3>Best Offers</h3>
+        <p>Frequent discounts, bundles, and limited drops — don’t miss the deals.</p>
+        <a class="why-ea-btn" href="products.php">View deals</a>
+        </article>
+    </div>
+    </section>
+    <div class="pink-line"></div>
     <?php include 'includes/footer.php'; ?>
     <script src="slider.js"></script>
 </body>

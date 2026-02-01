@@ -6,6 +6,7 @@
 <title>EA – Contact Us</title>
 <link rel="stylesheet" href="menufooter.css">
 <link rel="stylesheet" href="contactus.css">
+<link rel="icon" href="img/logo1.png">
 <style>
     body{
     background-color: #F8D8E8;
@@ -23,35 +24,42 @@
     <h1>Contact Us</h1>
 </section>
 
-<section class="help">
-    <h2>How can we help?</h2>
-    <div class="help-grid">
-        <div class="help-item">
-            <div class="help-circle"><img src="img/pink.png" alt=""></div>
-            <p>Advertise</p>
-        </div>
-        <div class="help-item">
-            <div class="help-circle"><img src="img/pink.png" alt=""></div>
-            <p>Reporter / Media</p>
-        </div>
-        <div class="help-item">
-            <div class="help-circle"><img src="img/pink.png" alt=""></div>
-            <p>Contributor</p>
-        </div>
-        <div class="help-item">
-            <div class="help-circle"><img src="img/pink.png" alt=""></div>
-            <p>Write</p>
-        </div>
-        <div class="help-item">
-            <div class="help-circle"><img src="img/pink.png" alt=""></div>
-            <p>Have a Tip</p>
-        </div>
-        <div class="help-item">
-            <div class="help-circle"><img src="img/pink.png" alt=""></div>
-            <p>Company</p>
-        </div>
+<section class="location-section">
+  <h2>Visit EA-Cosmetics</h2>
+
+  <div class="location-box">
+    <div class="location-text">
+      <h3>Inspired by EA-Cosmetics</h3>
+
+      <p>
+        Our beauty collections are inspired by global standards you love —
+        featuring trends, shades, and formulas found at EA-Cosmetics.
+      </p>
+
+      <p>
+        Discover premium makeup, skincare, and glow essentials
+        trusted by millions worldwide.
+      </p>
+
+      <p><strong>Reference store:</strong> EA-Cosmetics</p>
+
+      <a class="location-btn"
+         href="https://www.google.com/maps/place/Sephora"
+         target="_blank">Find EA-Cosmetics on Maps</a>
     </div>
+
+    <div class="location-map">
+      <iframe
+        src="https://www.google.com/maps?q=Sephora&output=embed"
+        width="100%" height="260"
+        style="border:0; border-radius:18px;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
 </section>
+
 
 <section class="contact">
     <h2>Let’s Start a Conversation</h2>

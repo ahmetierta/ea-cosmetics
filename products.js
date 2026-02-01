@@ -3,13 +3,15 @@ const ITEMS_PER_PAGE = 16;
 let currentCategory= 'all';
 let currentPage = 1;
 
-const allProducts = document.querySelectorAll('.product-card');
+const allProducts = document.querySelectorAll('.product-link');
 const pagination = document.getElementById('pagination');
 
 function renderProducts() {
     let filteredProducts = [];
     allProducts.forEach(product => {
-        const categories = product.dataset.category;
+        const card = product.querySelector('.product-card');
+        const categories = card ? card.dataset.category : '';
+
 
         if(currentCategory === 'all' || categories.includes(currentCategory)) {
             filteredProducts.push(product);
