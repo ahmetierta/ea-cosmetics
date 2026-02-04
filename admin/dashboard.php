@@ -247,10 +247,14 @@
           <a id="product-edit-<?= (int)$p["id"] ?>" class="btn-edit action-edit"
             href="products/edit.php?id=<?= (int)$p["id"] ?>">Edit</a>
 
+          <form method="POST" action="products/delete.php" style="display:inline;">
+          <input type="hidden" name="id" value="<?= (int)$p["id"] ?>">
           <button id="product-delete-<?= (int)$p["id"] ?>" class="btn-delete action-delete"
-          type="submit" onclick="return confirm('Delete this product?')">
-          Delete
+            type="submit" onclick="return confirm('Delete this product?')">
+           Delete
           </button>
+        </form>
+
 
           </form>
         </td>
